@@ -1,0 +1,103 @@
+{
+  "source": "https://github.com/akshayy-sudo/dolphin-ai-studio.git",
+  "capabilities": [
+    {
+      "capability": "code",
+      "source": "Public GitHub archive: TanStack Start app with Workspace, Database Designer, Practice Mode, and Query History pages; Dolphin logo and shared UI assets",
+      "outcome": "migrate",
+      "status": "in_progress",
+      "next_action": "Port all visible pages, shared UI, assets, and server-side AI/query functions; fix lesson completion and Tamil support"
+    },
+    {
+      "capability": "schema",
+      "source": "Existing SQL migration with demo ecommerce tables, seeded sample rows, practice_problems, practice_attempts, query_history, and a read-only SQL function",
+      "outcome": "migrate",
+      "status": "pending",
+      "next_action": "Apply the existing migration to Lovable Cloud and confirm tables and seeded challenges are available"
+    },
+    {
+      "capability": "records",
+      "source": "Seeded demo rows and 10 practice prompts are included in the migration; no export was supplied for query_history or practice_attempts",
+      "outcome": "partial",
+      "status": "pending",
+      "next_action": "After preview, request CSV or JSON exports for existing query history and practice attempts; import filtered records if provided"
+    },
+    {
+      "capability": "auth identities",
+      "source": "No app sign-in flow or user export detected; pages and reads are public",
+      "outcome": "not_present",
+      "status": "not_applicable",
+      "next_action": "No authentication migration planned because the source app does not use app-managed sign-in"
+    },
+    {
+      "capability": "authorization",
+      "source": "Source allows public reads and uses a privileged read-only query function; no per-user authorization model detected",
+      "outcome": "migrate",
+      "status": "pending",
+      "next_action": "Preserve public demo reads while keeping privileged writes and SQL execution server-side; review policies after migration"
+    },
+    {
+      "capability": "uploaded file bytes",
+      "source": "No user-uploaded storage flow detected; repository includes a static Dolphin logo",
+      "outcome": "not_present",
+      "status": "not_applicable",
+      "next_action": "Copy the static logo with the app; no storage file migration is needed"
+    },
+    {
+      "capability": "external providers",
+      "source": "Lovable AI Gateway for Gemini text generation; source database is replaced by Lovable Cloud",
+      "outcome": "preserve_ai_migrate_database",
+      "status": "pending",
+      "next_action": "Keep AI calls in server functions and use the project-provided gateway key; verify model availability and Tamil prompt handling"
+    },
+    {
+      "capability": "public endpoints",
+      "source": "App-internal server functions generate SQL, execute read-only queries, check practice answers, and load data",
+      "outcome": "migrate",
+      "status": "pending",
+      "next_action": "Keep calls behind TanStack server functions with validated inputs and read-only SQL enforcement"
+    },
+    {
+      "capability": "callbacks",
+      "source": "None detected",
+      "outcome": "not_present",
+      "status": "not_applicable",
+      "next_action": "No callback migration needed"
+    },
+    {
+      "capability": "webhooks",
+      "source": "None detected",
+      "outcome": "not_present",
+      "status": "not_applicable",
+      "next_action": "No webhook migration needed"
+    },
+    {
+      "capability": "schedules",
+      "source": "None detected",
+      "outcome": "not_present",
+      "status": "not_applicable",
+      "next_action": "No scheduled task migration needed"
+    },
+    {
+      "capability": "secrets",
+      "source": "Repository archive included a .env filename; its contents were excluded and not read. App code requires LOVABLE_API_KEY, provided by Lovable for the AI Gateway",
+      "outcome": "use_managed_secret",
+      "status": "pending",
+      "next_action": "Do not import source credentials; use the Lovable-managed AI key and verify a real model call"
+    },
+    {
+      "capability": "cutover",
+      "source": "Source repository URL provided in chat; no source database URL, custom domain, or export supplied",
+      "outcome": "new_preview",
+      "status": "pending",
+      "next_action": "Keep the source repository untouched; verify the migrated app in this project's preview"
+    },
+    {
+      "capability": "verification",
+      "source": "Requested end-to-end page, lesson completion, Tamil, AI generation, answer checking, and history behavior",
+      "outcome": "verify",
+      "status": "pending",
+      "next_action": "Build and test all pages and complete a representative practice progression and SQL workflow"
+    }
+  ]
+}
